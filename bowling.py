@@ -5,27 +5,22 @@ def score(game):
     for i in range(len(game)):
         if frame < 10  and get_value(game[i]) == 10:
             if game[i] == '/':
-                result += 10 - get_value(game[i-1])
-                result += get_value(game[i+1])
+                result += 10 - get_value(game[i-1]) + (get_value(game[i+1]))
             elif game[i] == 'X' or game[i] == 'x':
-                result += 10 + get_value(game[i+1])
-                result += 10 - get_value(game[i])
+                result += 10 + get_value(game[i+1])+(10 - get_value(game[i]))
                 if game[i+2] == '/':
                     result += 10 - get_value(game[i+1])
                 else:
                     result += get_value(game[i+2])
+                    in_first_half = True
+                    frame += 1
         else:
             result += get_value(game[i])
-
-        if not in_first_half:
-            frame += 1
         if in_first_half == True:
             in_first_half = False
         else:
             in_first_half = True
-        if game[i] == 'X' or game[i] == 'x':
-            in_first_half = True
-            frame += 1
+            frame +=1
     return result
 
 def get_value(char):
