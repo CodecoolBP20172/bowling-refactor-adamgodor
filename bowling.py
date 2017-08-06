@@ -14,6 +14,7 @@ def score(game):
                     result += get_value(game[i+2])
                     in_first_half = True
                     frame += 1
+
         else:
             result += get_value(game[i])
 
@@ -24,13 +25,16 @@ def score(game):
             frame += 1
 
     return result
-"""
+
+
 def get_value(char):
     signs = {'1': 1, '2': 2, '3': 3, '4': 4,
              '5': 5, '6': 6, '7': 7, '8': 8, '9': 9,
              "X": 10, "x": 10, "/": 10, "-": 0}
     if char in signs.keys():
         return signs.get(char)
+
+
 """
 def get_value(char):
     if char == '1' or char == '2' or char == '3' or \
@@ -45,3 +49,4 @@ def get_value(char):
         return 0
     else:
         raise ValueError()
+"""
